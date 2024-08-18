@@ -38,3 +38,39 @@ class Producto:
 
 
 ---------------------------------------------------------------------------------------------
+
+
+class Inventario:
+    def __init__(self):
+        # Lista para almacenar los productos
+        self.productos = []
+
+    def añadir_producto(self, producto):
+        # Verificar que el ID del producto sea único antes de añadirlo
+        for p in self.productos:
+            if p.get_id_producto() == producto.get_id_producto():
+                print("Error: Ya existe un producto con ese ID.")
+                return
+        self.productos.append(producto)
+        print("Producto añadido con éxito.")
+
+    def eliminar_producto(self, id_producto):
+        # Eliminar producto por ID
+        for p in self.productos:
+            if p.get_id_producto() == id_producto:
+                self.productos.remove(p)
+                print("Producto eliminado con éxito.")
+                return
+        print("Error: Producto no encontrado.")
+
+    def actualizar_producto(self, id_producto, cantidad=None, precio=None):
+        # Actualizar cantidad o precio de un producto por ID
+        for p in self.productos:
+            if p.get_id_producto() == id_producto:
+                if cantidad is not None:
+                    p.set_cantidad(cantidad)
+                if precio is not None:
+                    p.set_precio(precio)
+                print("Producto actualizado con éxito.")
+                return
+        print("Error: Producto no encontrado.")
