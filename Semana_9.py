@@ -74,3 +74,20 @@ class Inventario:
                 print("Producto actualizado con éxito.")
                 return
         print("Error: Producto no encontrado.")
+
+    def buscar_producto(self, nombre):
+        # Buscar productos por nombre (puede haber nombres similares)
+        resultados = [p for p in self.productos if nombre.lower() in p.get_nombre().lower()]
+        if resultados:
+            for p in resultados:
+                print(p.mostrar_info())
+        else:
+            print("No se encontraron productos con ese nombre.")
+
+    def mostrar_todos(self):
+        # Mostrar todos los productos en el inventario
+        if self.productos:
+            for p in self.productos:
+                print(p.mostrar_info())
+        else:
+            print("El inventario está vacío.")
