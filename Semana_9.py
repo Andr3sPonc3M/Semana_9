@@ -1,7 +1,7 @@
 # Semana 9
 # Tarea: Sistema de Gestión de Inventarios
 
-
+# Ingresar los atributos del producto
 class Producto:
     def __init__(self, id_producto, nombre, cantidad, precio):
         # Atributos del producto
@@ -10,7 +10,7 @@ class Producto:
         self._cantidad = cantidad  # Cantidad en inventario
         self._precio = precio  # Precio del producto
 
-    # Getters y setters para cada atributo
+    # funciones para leer y escribir cada atributo
     def get_id_producto(self):
         return self._id_producto
 
@@ -32,36 +32,39 @@ class Producto:
     def set_precio(self, precio):
         self._precio = precio
 
-    # Método para mostrar la información del producto
+    # Maneras de mostrar la información del producto
     def mostrar_info(self):
         return f"ID: {self._id_producto}, Nombre: {self._nombre}, Cantidad: {self._cantidad}, Precio: {self._precio}"
 
 
----------------------------------------------------------------------------------------------
 
-
+# Inventario
 class Inventario:
     def __init__(self):
-        # Lista para almacenar los productos
+        # Crear lista para almacenar los productos
         self.productos = []
+
+    # Formas de añadir o eliminar productos
 
     def añadir_producto(self, producto):
         # Verificar que el ID del producto sea único antes de añadirlo
         for p in self.productos:
             if p.get_id_producto() == producto.get_id_producto():
-                print("Error: Ya existe un producto con ese ID.")
+                print("Error: Ya existe un producto con ese ID.") # código de error
                 return
         self.productos.append(producto)
-        print("Producto añadido con éxito.")
+        print("Producto añadido con éxito.") # código exitoso
 
     def eliminar_producto(self, id_producto):
         # Eliminar producto por ID
         for p in self.productos:
             if p.get_id_producto() == id_producto:
                 self.productos.remove(p)
-                print("Producto eliminado con éxito.")
+                print("Producto eliminado con éxito.") # código exitoso
                 return
-        print("Error: Producto no encontrado.")
+        print("Error: Producto no encontrado.") # código de error
+
+    # Formas de modificar el inventario
 
     def actualizar_producto(self, id_producto, cantidad=None, precio=None):
         # Actualizar cantidad o precio de un producto por ID
@@ -71,9 +74,9 @@ class Inventario:
                     p.set_cantidad(cantidad)
                 if precio is not None:
                     p.set_precio(precio)
-                print("Producto actualizado con éxito.")
+                print("Producto actualizado con éxito.") # código exitoso
                 return
-        print("Error: Producto no encontrado.")
+        print("Error: Producto no encontrado.") # código de error
 
     def buscar_producto(self, nombre):
         # Buscar productos por nombre (puede haber nombres similares)
@@ -92,6 +95,11 @@ class Inventario:
         else:
             print("El inventario está vacío.")
 
+
+
+
+# Impresión en pantalla
+# Menu de opciones
 
 def menu():
     inventario = Inventario()
@@ -144,3 +152,7 @@ def menu():
 
 if __name__ == "__main__":
     menu()
+
+
+# Universidad Estatal Amazónica
+# Andrés Ponce M.
