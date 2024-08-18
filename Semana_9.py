@@ -154,5 +154,5 @@ if __name__ == "__main__":
     menu()
 
 
-# Universidad Estatal Amazónic
+# Universidad Estatal Amazónica
 # Andrés Ponce M.
