@@ -91,3 +91,30 @@ class Inventario:
                 print(p.mostrar_info())
         else:
             print("El inventario está vacío.")
+
+
+def menu():
+    inventario = Inventario()
+
+    while True:
+        print("\nSistema de Gestión de Inventarios")
+        print("1. Añadir nuevo producto")
+        print("2. Eliminar producto por ID")
+        print("3. Actualizar cantidad o precio de un producto")
+        print("4. Buscar producto(s) por nombre")
+        print("5. Mostrar todos los productos")
+        print("6. Salir")
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == '1':
+            id_producto = input("Ingrese el ID del producto: ")
+            nombre = input("Ingrese el nombre del producto: ")
+            cantidad = int(input("Ingrese la cantidad: "))
+            precio = float(input("Ingrese el precio: "))
+            producto = Producto(id_producto, nombre, cantidad, precio)
+            inventario.añadir_producto(producto)
+
+        elif opcion == '2':
+            id_producto = input("Ingrese el ID del producto a eliminar: ")
+            inventario.eliminar_producto(id_producto)
