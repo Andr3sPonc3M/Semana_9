@@ -19,3 +19,22 @@ class Producto:
 
     def set_nombre(self, nombre):
         self._nombre = nombre
+
+    def get_cantidad(self):
+        return self._cantidad
+
+    def set_cantidad(self, cantidad):
+        self._cantidad = cantidad
+
+    def get_precio(self):
+        return self._precio
+
+    def set_precio(self, precio):
+        self._precio = precio
+
+    # Método para mostrar la información del producto
+    def mostrar_info(self):
+        return f"ID: {self._id_producto}, Nombre: {self._nombre}, Cantidad: {self._cantidad}, Precio: {self._precio}"
+
+
+---------------------------------------------------------------------------------------------
